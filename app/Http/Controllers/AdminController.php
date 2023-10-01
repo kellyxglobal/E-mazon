@@ -55,6 +55,11 @@ class AdminController extends Controller
 
         $data->save();
 
+        //Adding notification in the admin profile page to display a message when ever the admin update his/her profile bu uisng the toastr function
+        $notification = array(
+            'message' => 'Admin Profile Updated Succesfully',
+            'alert-type' => 'success'
+        );
         return redirect()->back();
 
         return view('admin.admin_profile_store_view');
