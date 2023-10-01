@@ -1,5 +1,8 @@
 @extends('admin.admin_dashboard')
 @section('admin')
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 <div class="page-content"> 
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -97,7 +100,7 @@
 												<h6 class="mb-0">Photo</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="file" class="form-control" />
+												<input type="file" class="form-control" id="image" />
 											</div>
 										</div>
 
@@ -126,7 +129,7 @@
 			</div>
 
 
-	<script>
+	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#image').change(function(e){
 				var reader = new FileReader();
@@ -134,7 +137,7 @@
 					$('#showImage').attr('src',e.target.result);
 				}
 				reader.readAsDataURL(e.target.files['0']);
-			})
+			});
 		});
 
 	</script>
