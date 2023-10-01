@@ -25,11 +25,11 @@
 								<div class="card">
 									<div class="card-body">
 										<div class="d-flex flex-column align-items-center text-center">
-											<img src="{{ (!empty($adminData->photo)) ? url('upload/admin_images/'.$adminData->photo) }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+											<img src="{{ (!empty($adminData->photo)) ? url('upload/admin_images/'.$adminData->photo):url('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
 											<div class="mt-3">
 												<h4>{{ $adminData->name }}</h4>
-												<p class="text-secondary mb-1">Full Stack Developer</p>
-												<p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+												<p class="text-secondary mb-1">{{ $adminData->email }}</p>
+												<p class="text-muted font-size-sm">{{ $adminData->address }}</p>
 												
 											</div>
 										</div>
@@ -56,7 +56,7 @@
 												<h6 class="mb-0">User Name</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="{{ $adminData->username }}" />
+												<input type="text" class="form-control" value="{{ $adminData->username }}" disabled/>
 											</div>
 										</div>
 										<div class="row mb-3">
@@ -91,6 +91,25 @@
 												<input type="text" class="form-control" value="{{ $adminData->address }}" />
 											</div>
 										</div>
+
+										<div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Photo</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<input type="file" class="form-control" />
+											</div>
+										</div>
+
+										<div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0"></h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<img id="showImage" src="{{ (!empty($adminData->photo)) ? url('upload/admin_images/'.$adminData->photo):url('upload/no_image.jpg') }}" alt="Admin" style="width:100px; height: 100px;" >
+											</div>
+										</div>
+
 										<div class="row">
 											<div class="col-sm-3"></div>
 											<div class="col-sm-9 text-secondary">
@@ -105,4 +124,18 @@
 					</div>
 				</div>
 			</div>
+
+
+	<script>
+		$(document).ready(function(){
+			$('#image').change(function(e){
+				var reader = new FileReader();
+				reader.onload = function(e){
+					$('#showImage').attr('src',e.target.result);
+				}
+				reader.readAsDataURL(e.target.files['0']);
+			})
+		});
+
+	</script>
 @endsection
