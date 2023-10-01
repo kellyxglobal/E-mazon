@@ -55,7 +55,7 @@
 								<div class="card">
 									<div class="card-body">
 
-									<form method="post" action="{{ route('admin.rofile.store') }}" enctype="multipart/form-data">
+									<form method="post" action="{{ route('admin.profile.store') }}" enctype="multipart/form-data">
 										@csrf
 
 										<div class="row mb-3">
@@ -79,7 +79,7 @@
 												<h6 class="mb-0">Email</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="email" email="email" class="form-control" value="{{ $adminData->email }}" />
+												<input type="email" name="email" class="form-control" value="{{ $adminData->email }}" />
 											</div>
 										</div>
 										<div class="row mb-3">
@@ -120,7 +120,7 @@
 										<div class="row">
 											<div class="col-sm-3"></div>
 											<div class="col-sm-9 text-secondary">
-												<input type="button" class="btn btn-primary px-4" value="Save Changes" />
+												<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
 											</div>
 										</div>
 									</div>
