@@ -29,7 +29,7 @@
 								<div class="card">
 									<div class="card-body">
                                     <!-- change password with validations -->
-									<form method="post" action="{{ route('admin.profile.store') }}" >
+									<form method="post" action="{{ route('update.password') }}" >
 										@csrf
 
                                         @if (session('status'))
@@ -75,7 +75,7 @@
 												<h6 class="mb-0">Confirm New Password</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="password" name="new_password_confirm" class="form-control @error('new_password_confirmation') is_invalid @enderror" id="new_password_confirmation" placeholder="Confirm New Password" />
+												<input type="password" name="new_password_confirmation" class="form-control @error('new_password_confirmation') is_invalid @enderror" id="new_password_confirmation" placeholder="Confirm New Password" />
 											</div>
 										</div>
 
