@@ -65,4 +65,9 @@ class AdminController extends Controller
         return view('admin.admin_profile_store_view');
     }//End Method
 
+    public function AdminChangePassword(Request $request){
+        return view('admin.admin_change_password');
+       
+    }//End Method
+
 }
