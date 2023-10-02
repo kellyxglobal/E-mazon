@@ -60,7 +60,7 @@ class AdminController extends Controller
             'message' => 'Admin Profile Updated Succesfully',
             'alert-type' => 'success'
         );
-        return redirect()->back();
+        return redirect()->back()->with($notification);
 
         return view('admin.admin_profile_store_view');
     }//End Method

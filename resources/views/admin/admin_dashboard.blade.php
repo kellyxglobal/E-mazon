@@ -84,7 +84,7 @@
 
 
 <!-- Added toastr for admin profile notifications when updating profile -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
  @if(Session::has('message'))
@@ -106,7 +106,7 @@
     toastr.error(" {{ Session::get('message') }} ");
     break; 
  }
- @endif 
+ @endif
 </script>
 
 </body>
