@@ -6,13 +6,13 @@
 <div class="page-content"> 
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">User Admin Profile</div>
+					<div class="breadcrumb-title pe-3">User Vendor Profile</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Admin Change Password</li>
+								<li class="breadcrumb-item active" aria-current="page">Vendor Change Password</li>
 							</ol>
 						</nav>
 					</div>
@@ -29,7 +29,7 @@
 								<div class="card">
 									<div class="card-body">
                                     <!-- change password with validations -->
-									<form method="post" action="{{ route('update.password') }}" >
+									<form method="post" action="{{ route('vendor.update.password') }}" >
 										@csrf
 
                                         @if (session('status'))
@@ -78,10 +78,6 @@
 												<input type="password" name="new_password_confirmation" class="form-control @error('new_password_confirmation') is_invalid @enderror" id="new_password_confirmation" placeholder="Confirm New Password" />
 											</div>
 										</div>
-
-										
-
-								
 
 										<div class="row">
 											<div class="col-sm-3"></div>

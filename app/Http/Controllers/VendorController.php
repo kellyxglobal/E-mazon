@@ -51,7 +51,7 @@ class VendorController extends Controller
         $data->vendor_join = $request->vendor_join;
         $data->vendor_short_info = $request->vendor_short_info;
 
-        //Updating admin profile photo and aking sure the new profile photo rplaces the old one  using the laravl @unlink method.
+        //Updating vendor profile photo and aking sure the new profile photo rplaces the old one  using the laravl @unlink method.
         if($request->file('photo')){
             $file = $request->file('photo');
             @unlink(public_path('upload/vendor_images/'.$data->photo));
@@ -74,6 +74,27 @@ class VendorController extends Controller
 
     public function VendorChangePassword(Request $request){
         return view('vendor.vendor_change_password');
+       
+    }//End Method
+
+    public function VendorUpdatePassword(Request $request){
+        //Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+        //Check if old password matches input matches the value in the database password field
+        if(!Hash::check($request->old_password, auth::user()->password)){
+            return back()->with("error", "Old Password Does not Match!!");
+
+        }
+
+        //Updating the new Password by passing to a hash string and upating it in the password table filed
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+        return back()->with("status", " Password Changed Succesfully");
        
     }//End Method
 

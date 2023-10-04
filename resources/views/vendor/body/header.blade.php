@@ -327,7 +327,7 @@
 					<!-- Writing a function Updating the user admin photo in the header section -->
 					@php
 						$id = Auth::user()->id;
-        				$adminData = App\Models\User::find($id);
+        				$vendorData = App\Models\User::find($id);
 					@endphp
 
 					<div class="user-box dropdown">
