@@ -57,4 +57,26 @@ public function userProfileStore(Request $request){
 
     return redirect('/login');
 }//End Method
+
+
+public function UserUpdatePassword(Request $request){
+    //Validation
+    $request->validate([
+        'old_password' => 'required',
+        'new_password' => 'required|confirmed',
+    ]);
+
+    //Check if old password matches input matches the value in the database password field
+    if(!Hash::check($request->old_password, auth::user()->password)){
+        return back()->with("error", "Old Password Does not Match!!");
+
+    }
+
+    //Updating the new Password by passing to a hash string and upating it in the password table filed
+    User::whereId(auth()->user()->id)->update([
+        'password' => Hash::make($request->new_password)
+    ]);
+    return back()->with("status", " Password Changed Succesfully");
+   
+}//End Method
 }
