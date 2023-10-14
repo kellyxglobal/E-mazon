@@ -56,11 +56,11 @@ public function userProfileStore(Request $request){
     $request->session()->regenerateToken();
     //Adding notification in the user profile page to display a message when ever the logs out of his/her profile bu uisng the toastr function
     $notification = array(
-        'message' => 'User Profile logout Succesfully',
+        'message' => 'User logout Succesfully',
         'alert-type' => 'success'
     );
 
-    return redirect('/login');
+    return redirect('/login')->with($notification);
 }//End Method
 
 

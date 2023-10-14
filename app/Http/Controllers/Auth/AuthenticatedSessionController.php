@@ -29,6 +29,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        //Adding notification in the user profile page to display a message when ever the login on his/her profile bu uisng the toastr function
+        $notification = array(
+        'message' => 'Login Succesfully',
+        'alert-type' => 'success'
+        );
+
         $url = '';
         if($request->user()->role === 'admin'){
             $url = 'admin/dashboard';
@@ -38,7 +44,7 @@ class AuthenticatedSessionController extends Controller
             $url = '/dashboard';
         }
 
-        return redirect()->intended($url);
+        return redirect()->intended($url)->with($notification);
         //return redirect()->intended(RouteServiceProvider::HOME);
     }
 
