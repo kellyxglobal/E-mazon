@@ -37,7 +37,7 @@ public function userProfileStore(Request $request){
 
     $data->save();
 
-    //Adding notification in the admin profile page to display a message when ever the admin update his/her profile bu uisng the toastr function
+    //Adding notification in the user profile page to display a message when ever the user update his/her profile bu uisng the toastr function
     $notification = array(
         'message' => 'User Profile Updated Succesfully',
         'alert-type' => 'success'
@@ -47,13 +47,18 @@ public function userProfileStore(Request $request){
     return view('user.user_profile_store_view');
 }//End Method
 
- //A function or method to destroy the admin profile session or to logout of the admin profile page.
+ //A function or method to destroy the user profile session or to logout of the admin profile page.
  public function UserLogout(Request $request){
     Auth::guard('web')->logout();
 
     $request->session()->invalidate();
 
     $request->session()->regenerateToken();
+    //Adding notification in the user profile page to display a message when ever the logs out of his/her profile bu uisng the toastr function
+    $notification = array(
+        'message' => 'User Profile logout Succesfully',
+        'alert-type' => 'success'
+    );
 
     return redirect('/login');
 }//End Method

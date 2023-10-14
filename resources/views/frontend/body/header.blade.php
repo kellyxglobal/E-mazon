@@ -160,7 +160,7 @@
                                         <img class="svgInject" alt="Nest" src="{{ asset('frontend/assets/imgs/theme/icons/icon-user.svg') }}" />
                                     </a>
 
-                                    <!-- Check if a user is authenticated then display it's account -->
+                                    <!-- Check if a user is authenticated then display its account -->
                                     @auth
                                     <a href="{{ route('dashboard') }}"><span class="lable ml-0">Account</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
