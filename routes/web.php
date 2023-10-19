@@ -5,8 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\UserController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\Backend\BrandController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -82,3 +83,11 @@ Route::middleware(['auth','role:vendor'])->group(function() {
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
 Route::get('/vendor/login', [VendorController::class, 'VendorLogin']);
+
+Route::middleware(['auth','role:admin'])->group(function() { //Potected. Accessible only by admin users
+//All Brand's Route
+Route::controller(BrandController::class)->group(function(){
+    
+    Route::get('/all/brand', 'AllBrand')->name('all.brand');
+});
+}); //End Middleware
