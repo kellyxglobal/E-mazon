@@ -90,6 +90,14 @@ Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('b
 Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->name('vendor.register');
 
 
+// Vendor Active and Inactive All Route 
+Route::controller(AdminController::class)->group(function(){
+    Route::get('/inactive/vendor' , 'InactiveVendor')->name('inactive.vendor');
+
+
+});
+
+
 Route::middleware(['auth','role:admin'])->group(function() { //Potected. Accessible only by admin users
 
 //All Brand's Route
