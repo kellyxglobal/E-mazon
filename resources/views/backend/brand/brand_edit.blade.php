@@ -48,7 +48,7 @@
 
 			<div class="row mb-3">
 				<div class="col-sm-3">
-					<h6 class="mb-0">Brand Image </h6>
+					<h6 class="mb-0">Brandd Image </h6>
 				</div>
 				<div class="col-sm-9 text-secondary">
 					<input type="file" name="brand_image" class="form-control"  id="image"   />

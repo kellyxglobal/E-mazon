@@ -95,6 +95,7 @@ Route::controller(BrandController::class)->group(function(){
     Route::get('/edit/brand/{id}' , 'EditBrand')->name('edit.brand');
     Route::post('/update/brand' , 'UpdateBrand')->name('update.brand');
     Route::get('/delete/brand/{id}' , 'DeleteBrand')->name('delete.brand');
+    
 
 });
 }); //End Middleware
