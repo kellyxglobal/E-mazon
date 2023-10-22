@@ -15,6 +15,10 @@ class VendorController extends Controller
     }
     //
 
+    public function BecomeVendor(){
+        return view('auth.become_vendor');
+    } // End Mehtod 
+
     public function VendorLogin(){
         return view('vendor.vendor_login');
     }
