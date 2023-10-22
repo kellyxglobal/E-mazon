@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CategoryController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
@@ -85,8 +86,8 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
 Route::get('/vendor/login', [VendorController::class, 'VendorLogin']);
 
 Route::middleware(['auth','role:admin'])->group(function() { //Potected. Accessible only by admin users
-//All Brand's Route
 
+//All Brand's Route
 Route::controller(BrandController::class)->group(function(){
     
     Route::get('/all/brand', 'AllBrand')->name('all.brand');
@@ -95,7 +96,16 @@ Route::controller(BrandController::class)->group(function(){
     Route::get('/edit/brand/{id}' , 'EditBrand')->name('edit.brand');
     Route::post('/update/brand' , 'UpdateBrand')->name('update.brand');
     Route::get('/delete/brand/{id}' , 'DeleteBrand')->name('delete.brand');
+
+});
+
+
+//All Route for Category
+Route::controller(CategoryController::class)->group(function(){
+    
+    Route::get('/all/category/' , 'AllCategory')->name('all.category');
     
 
 });
+
 }); //End Middleware

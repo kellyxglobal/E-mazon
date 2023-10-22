@@ -43,7 +43,7 @@
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
-						<div class="menu-title">Application</div>
+						<div class="menu-title">Categories</div>
 					</a>
 					<ul>
 						<li> <a href="app-emailbox.html"><i class="bx bx-right-arrow-alt"></i>Email</a>
