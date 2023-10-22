@@ -99,4 +99,10 @@ class AdminController extends Controller
 
     }// End Mehtod 
 
+    public function ActiveVendor(){
+        $ActiveVendor = User::where('status','active')->where('role','vendor')->latest()->get();
+        return view('backend.vendor.active_vendor',compact('ActiveVendor'));
+
+    }// End Mehtod 
+
 }
