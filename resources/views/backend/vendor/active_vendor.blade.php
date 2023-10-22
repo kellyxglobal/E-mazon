@@ -50,6 +50,7 @@
 
 				<td>
                     <a href="{{ route('active.vendor.details',$item->id) }}" class="btn btn-info">Vendor Details</a>
+
 				</td> 
 			</tr>
 			@endforeach
