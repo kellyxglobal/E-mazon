@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Become Vendor Page </title>
+    <title>Become A Vendor Page </title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -45,7 +45,7 @@
                                         </div>
 
 
- <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('vendor.register') }}">
             @csrf
 
 
