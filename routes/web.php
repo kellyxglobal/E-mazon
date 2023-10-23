@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\ProductController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
@@ -137,6 +138,15 @@ Route::controller(SubCategoryController::class)->group(function(){
     Route::get('/edit/subcategory/{id}' , 'EditSubCategory')->name('edit.subcategory');
     Route::post('/update/subcategory' , 'UpdateSubCategory')->name('update.subcategory');
     Route::get('/delete/subcategory/{id}' , 'DeleteSubCategory')->name('delete.subcategory');
+
+});
+
+
+
+// Product All Route 
+    Route::controller(ProductController::class)->group(function(){
+        Route::get('/all/product' , 'AllProduct')->name('all.product');
+        Route::get('/add/subcategory' , 'AddSubCategory')->name('add.subcategory');
 
 });
 
