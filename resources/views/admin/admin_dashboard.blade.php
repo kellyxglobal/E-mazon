@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
 	<link rel="icon" href="{{ asset('adminbackend/assets/images/favicon-32x32.png" type="image/png') }}" />
+	<link href="{{ asset('adminbackend/assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
 	<!--plugins-->
 	<link href="{{ asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
 	<link href="{{ asset('adminbackend/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet') }}" />
@@ -127,6 +128,18 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
  <script src="{{ asset('adminbackend/assets/js/code.js') }}"></script>
 
+ <!-- TynMce Starts -->
+ <script src="{{ asset('adminbackend/assets/plugins/input-tags/js/tagsinput.js') }}"></script>
+
+ 	<script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+	</script>
+
+	<script>
+		tinymce.init({
+		  selector: '#mytextarea'
+		});
+	</script>
+<!-- TinyMce Ends -->
 </body>
 
 </html>
