@@ -43,7 +43,7 @@
 	@foreach($products as $key => $item)		
 			<tr>
 				<td> {{ $key+1 }} </td>				
-				<td> <img src="{{ asset($item->product_thambnail) }}" style="width: 70px; height:40px;" >  </td>
+				<td> <img src="{{ asset($item->product_thumbnail) }}" style="width: 70px; height:40px;" >  </td>
 				<td>{{ $item->product_name }}</td>
 				<td>{{ $item->selling_price }}</td>
 				<td>{{ $item->product_qty }}</td>

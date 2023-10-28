@@ -26,8 +26,9 @@
 	  <hr/>
 
 
-	  <form id="myForm" method="post" action="{{ route('store.category') }}" enctype="multipart/form-data" >
+	  <form id="myForm" method="post" action="{{ route('store.product') }}" enctype="multipart/form-data" >
 			@csrf
+
 
        <div class="form-body mt-4">
 	    <div class="row">
@@ -71,7 +72,7 @@
 
 			  <div class="form-group mb-3">
 				<label for="inputProductTitle" class="form-label">Main Thambnail</label>
-				<input name="product_thambnail" class="form-control" type="file" id="formFile" onChange="mainThamUrl(this)" >
+				<input name="product_thumbnail" class="form-control" type="file" id="formFile" onChange="mainThamUrl(this)" >
 
 				<img src="" id="mainThmb" />
 			  </div>
@@ -152,7 +153,7 @@
 
 	 <div class="col-md-6">	
     <div class="form-check">
- <input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault">
+	<input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault">
 			<label class="form-check-label" for="flexCheckDefault"> Hot Deals</label>
 		</div>
 	</div>
@@ -306,7 +307,7 @@
           var data = $(this)[0].files; //this file data
            
           $.each(data, function(index, file){ //loop though each file
-              if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+              if(/(\.|\/)(gif|jpe?g|png|webp)$/i.test(file.type)){ //check supported file type
                   var fRead = new FileReader(); //new filereader
                   fRead.onload = (function(file){ //trigger function on successful read
                   return function(e) {
