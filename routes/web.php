@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Controllers\Backend\VendorProductController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
@@ -29,6 +30,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function() {
+
     Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard');
     Route::post('/user/profile/store', [UserController::class, 'UserProfileStore'])->name('user.profile.store');
     
@@ -70,6 +72,7 @@ Route::middleware(['auth','role:admin'])->group(function() {
 
 //Vendor Dashboard
 Route::middleware(['auth','role:vendor'])->group(function() {
+
     Route::get('/vendor/dashboard', [VendorController::class, 'VendorDashboard'])->name('vendor.dashboard');
 
     Route::get('/vendor/logout', [VendorController::class, 'VendorDestroy'])->name('vendor.logout');
@@ -81,6 +84,11 @@ Route::middleware(['auth','role:vendor'])->group(function() {
     Route::get('/vendor/change/pasword', [VendorController::class, 'VendorChangePassword'])->name('vendor.change.password');
 
     Route::post('/vendor/update/pasword', [VendorController::class, 'VendorUpdatePassword'])->name('vendor.update.password');
+
+    // Vendor Add Product All Route 
+    Route::controller(VendorProductController::class)->group(function(){
+        Route::get('/vendor/all/product' , 'VendorAllProduct')->name('vendor.all.product');
+        });
 
 });
 
