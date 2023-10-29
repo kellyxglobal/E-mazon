@@ -255,7 +255,7 @@
 		</thead>
 		<tbody>
 
- <form method="post" action="{{ route('update.product.thumbnail') }}" enctype="multipart/form-data" >
+        <form method="post" action="{{ route('update.product.multiimage') }}" enctype="multipart/form-data" >
 			@csrf
 
             @foreach($multiImgs as $key => $img)
@@ -265,7 +265,7 @@
 		<td> <input type="file" class="form-group" name="multi_img[{{ $img->id }}]"> </td>
 		<td> 
 	<input type="submit" class="btn btn-primary px-4" value="Update Image " />		
-	<a href="" class="btn btn-danger"> Delete </a>		
+	<a href="{{ route('product.multiimg.delete',$img->id) }}" class="btn btn-danger" id="delete" > Delete </a>			
 		</td>
 	</tr>
 	@endforeach		 

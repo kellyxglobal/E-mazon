@@ -153,6 +153,9 @@ Route::controller(SubCategoryController::class)->group(function(){
         Route::get('/edit/product/{id}' , 'EditProduct')->name('edit.product');
         Route::post('/update/product' , 'UpdateProduct')->name('update.product');
         Route::post('/update/product/thumbnail' , 'UpdateProductThumbnail')->name('update.product.thumbnail');
+        Route::post('/update/product/multiimage' , 'UpdateProductMultiimage')->name('update.product.multiimage');
+        Route::get('/product/multiimg/delete/{id}' , 'MulitImageDelelte')->name('product.multiimg.delete');
+
 
 });
 
