@@ -25,7 +25,7 @@
 	  <h5 class="card-title">Add New Product</h5>
 	  <hr/>
 
-<form id="myForm" method="post" action="{{ route('store.product') }}" enctype="multipart/form-data" >
+      <form id="myForm" method="post" action="{{ route('vendor.store.product') }}" enctype="multipart/form-data" >
 			@csrf
 
        <div class="form-body mt-4">
@@ -69,8 +69,8 @@
 
 
   <div class="form-group mb-3">
-				<label for="inputProductTitle" class="form-label">Main Thambnail</label>
-				<input name="product_thambnail" class="form-control" type="file" id="formFile" onChange="mainThamUrl(this)" >
+				<label for="inputProductTitle" class="form-label">Main Thumbnail</label>
+				<input name="product_thumbnail" class="form-control" type="file" id="formFile" onChange="mainThamUrl(this)" >
 
 				<img src="" id="mainThmb" />
 			  </div>
