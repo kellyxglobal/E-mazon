@@ -88,9 +88,12 @@ Route::middleware(['auth','role:vendor'])->group(function() {
     // Vendor Add Product All Route 
     Route::controller(VendorProductController::class)->group(function(){
         Route::get('/vendor/all/product' , 'VendorAllProduct')->name('vendor.all.product');
-        });
+        Route::get('/vendor/add/product' , 'VendorAddProduct')->name('vendor.add.product');
+        Route::get('/vendor/subcategory/ajax/{category_id}' , 'VendorGetSubCategory');
 
-});
+        }); //Vendor Add Product All Route Method Ends
+
+}); // end group middleware
 
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class);
