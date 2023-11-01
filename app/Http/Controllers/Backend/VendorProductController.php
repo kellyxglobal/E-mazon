@@ -273,7 +273,7 @@ public function VendorUpdateProduct(Request $request){
      public function VendorProductDelete($id){
 
         $product = Product::findOrFail($id);
-        unlink($product->product_thambnail);
+        unlink($product->product_thumbnail);
         Product::findOrFail($id)->delete();
 
         $imges = MultiImg::where('product_id',$id)->get();
