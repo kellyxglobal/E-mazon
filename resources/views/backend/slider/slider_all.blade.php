@@ -16,7 +16,7 @@
 					</div>
 					<div class="ms-auto">
 						<div class="btn-group">
-		<a href="{{ route('add.category') }}" class="btn btn-primary">Add Slider</a> 				 
+						<a href="{{ route('add.slider') }}" class="btn btn-primary">Add Slider</a> 				 
 						</div>
 					</div>
 				</div>
@@ -45,8 +45,8 @@
 				<td> <img src="{{ asset($item->slider_image) }}" style="width: 70px; height:40px;" >  </td>
 
 				<td>
-<a href="{{ route('edit.category',$item->id) }}" class="btn btn-info">Edit</a>
-<a href="{{ route('delete.category',$item->id) }}" class="btn btn-danger" id="delete" >Delete</a>
+					<a href="{{ route('edit.slider',$item->id) }}" class="btn btn-info">Edit</a>
+					<a href="{{ route('delete.slider',$item->id) }}" class="btn btn-danger" id="delete" >Delete</a>
 
 				</td> 
 			</tr>
