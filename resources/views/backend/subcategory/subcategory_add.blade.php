@@ -17,21 +17,21 @@
 						</nav>
 					</div>
 					<div class="ms-auto">
-
+				 
 					</div>
 				</div>
 				<!--end breadcrumb-->
 				<div class="container">
 					<div class="main-body">
 						<div class="row">
-
+							 
 <div class="col-lg-10">
 	<div class="card">
 		<div class="card-body">
 
  <form id="myForm" method="post" action="{{ route('store.subcategory') }}"   >
 			@csrf
-
+		 
 			<div class="row mb-3">
 				<div class="col-sm-3">
 					<h6 class="mb-0">Category Name</h6>
@@ -43,12 +43,12 @@
 			 @foreach($categories as $category)
 		 	<option value="{{ $category->id }}">{{ $category->category_name }}</option>
 		 	@endforeach
-
+		 
 								</select>
 				</div>
 			</div>
-
-
+			  
+ 
            <div class="row mb-3">
 				<div class="col-sm-3">
 					<h6 class="mb-0">SubCategory Name</h6>
@@ -57,7 +57,7 @@
 					<input type="text" name="subcategory_name" class="form-control"   />
 				</div>
 			</div>
-
+			  
 
 
 
@@ -74,7 +74,7 @@
 
 
 	</div>
-
+	 
 
 
 
@@ -118,7 +118,7 @@
 
 
 
-
+ 
 
 
 @endsection

@@ -21,7 +21,7 @@
 					</div>
 				</div>
 				<!--end breadcrumb-->
-
+				 
 				<hr/>
 				<div class="card">
 					<div class="card-body">
@@ -41,16 +41,19 @@
 				<td> {{ $key+1 }} </td>
 				<td> {{ $item['category']['category_name'] }}</td>
 				<td> {{ $item->subcategory_name }}  </td>
-
+				
 				<td>
-					<a href="{{ route('edit.subcategory',$item->id) }}" class="btn btn-info">Edit</a>
-					<a href="{{ route('delete.subcategory',$item->id) }}" class="btn btn-danger" id="delete" >Delete</a>
-
+ @if(Auth::user()->can('subcategory.edit'))
+<a href="{{ route('edit.subcategory',$item->id) }}" class="btn btn-info">Edit</a>
+@endif
+ @if(Auth::user()->can('subcategory.delete'))
+<a href="{{ route('delete.subcategory',$item->id) }}" class="btn btn-danger" id="delete" >Delete</a>
+@endif
 				</td> 
 			</tr>
 			@endforeach
-
-
+			 
+		 
 		</tbody>
 		<tfoot>
 			<tr>
@@ -64,9 +67,9 @@
 						</div>
 					</div>
 				</div>
+ 
 
-
-
+				 
 			</div>
 
 
