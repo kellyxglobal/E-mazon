@@ -13,6 +13,7 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Frontend\IndexController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
@@ -139,6 +140,8 @@ Route::controller(BrandController::class)->group(function(){
     Route::post('/update/brand' , 'UpdateBrand')->name('update.brand');
     Route::get('/delete/brand/{id}' , 'DeleteBrand')->name('delete.brand');
 
+    
+
 });
 
 
@@ -209,5 +212,7 @@ Route::controller(SliderController::class)->group(function(){
     Route::get('/delete/banner/{id}' , 'DeleteBanner')->name('delete.banner');
 
 });
+
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
 
 }); //End Middleware
