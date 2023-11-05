@@ -38,7 +38,7 @@ $featured = App\Models\Product::where('featured',1)->orderBy('id','DESC')->limit
                     <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
                 </div>
 
-                 @php
+    @php
     $amount = $product->selling_price - $product->discount_price;
     $discount = ($amount/$product->selling_price) * 100;
     @endphp
