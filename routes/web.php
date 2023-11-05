@@ -73,6 +73,8 @@ Route::middleware(['auth','role:admin'])->group(function() {
     //
 });
 
+
+
 //Vendor Dashboard
 Route::middleware(['auth','role:vendor'])->group(function() {
 
@@ -213,6 +215,8 @@ Route::controller(SliderController::class)->group(function(){
 
 });
 
-Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
 
-}); //End Middleware
+}); // Admin End Middleware
+
+/// Frontend Product Details All Route
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
