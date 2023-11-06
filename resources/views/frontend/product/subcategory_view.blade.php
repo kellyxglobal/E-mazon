@@ -8,7 +8,7 @@
                             <h5 class="mb-15">{{ $breadsubcat->subcategory_name }}</h5>
                             <div class="breadcrumb">
                                 <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> {{ $breadsubcat->subcategory_name }} 
+                                <span></span>{{ $breadsubcat->category->category_name }} <span></span>  {{ $breadsubcat->subcategory_name }}
                             </div>
                         </div>
 
@@ -205,7 +205,7 @@ $products = App\Models\Product::where('category_id',$category->id)->get();
         @foreach($newProduct as $product)
         <div class="single-post clearfix">
             <div class="image">
-                <img src="{{ asset( $product->product_thambnail ) }}" alt="#" />
+                <img src="{{ asset( $product->product_thumbnail ) }}" alt="#" />
             </div>
             <div class="content pt-10">
                 <p><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $product->product_name }}</a></p>
