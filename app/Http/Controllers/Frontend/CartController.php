@@ -27,6 +27,7 @@ class CartController extends Controller
                     'image' => $product->product_thumbnail,
                     'color' => $request->color,
                     'size' => $request->size,
+                    
                 ],
             ]);
 
