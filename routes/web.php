@@ -269,6 +269,8 @@ Route::controller(CartController::class)->group(function(){
     Route::get('/mycart' , 'MyCart')->name('mycart');
     Route::get('/get-cart-product' , 'GetCartProduct');
     Route::get('/cart-remove/{rowId}' , 'CartRemove');
+    Route::get('/cart-decrement/{rowId}' , 'CartDecrement');
+    Route::get('/cart-increment/{rowId}' , 'CartIncrement');
 
 
 }); 
