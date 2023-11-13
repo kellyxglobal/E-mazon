@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
@@ -229,6 +230,17 @@ Route::controller(CouponController::class)->group(function(){
     Route::get('/delete/coupon/{id}' , 'DeleteCoupon')->name('delete.coupon');
 
 });
+
+// Shipping Division All Route 
+Route::controller(ShippingAreaController::class)->group(function(){
+    Route::get('/all/division' , 'AllDivision')->name('all.division');
+    Route::get('/add/division' , 'AddDivision')->name('add.division');
+    Route::post('/store/division' , 'StoreDivision')->name('store.division');
+    Route::get('/edit/division/{id}' , 'EditDivision')->name('edit.division');
+    Route::post('/update/division' , 'UpdateDivision')->name('update.division');
+    Route::get('/delete/division/{id}' , 'DeleteDivision')->name('delete.division');
+
+}); 
 
 
 }); // Admin End Middleware
