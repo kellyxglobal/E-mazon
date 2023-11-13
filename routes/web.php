@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\CouponController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
@@ -18,8 +19,6 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CompareController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -220,6 +219,17 @@ Route::controller(SliderController::class)->group(function(){
 
 });
 
+// Coupon All Route 
+Route::controller(CouponController::class)->group(function(){
+    Route::get('/all/coupon' , 'AllCoupon')->name('all.coupon');
+    Route::get('/add/coupon' , 'AddCoupon')->name('add.coupon');
+    Route::post('/store/coupon' , 'StoreCoupon')->name('store.coupon');
+    Route::get('/edit/coupon/{id}' , 'EditCoupon')->name('edit.coupon');
+    Route::post('/update/coupon' , 'UpdateCoupon')->name('update.coupon');
+    Route::get('/delete/coupon/{id}' , 'DeleteCoupon')->name('delete.coupon');
+
+});
+
 
 }); // Admin End Middleware
 
@@ -273,6 +283,6 @@ Route::controller(CartController::class)->group(function(){
     Route::get('/cart-increment/{rowId}' , 'CartIncrement');
 
 
-}); 
+});  //End Cart All Route ethod
    
 }); // end User group middleware
