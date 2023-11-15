@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\ShipDivision;
 use App\Models\ShipDistricts;
 use App\Models\ShipState;
+use App\Models\ShipCountry;
 use Carbon\Carbon;
 
 class ShippingAreaController extends Controller
@@ -150,6 +151,56 @@ public function StoreDistrict(Request $request){
 
         return redirect()->back()->with($notification); 
 
+
+    }// End Method 
+
+
+
+    /////////////// State CRUD ///////////////
+
+
+    public function AllState(){
+        $state = ShipState::latest()->get();
+        return view('backend.ship.state.state_all',compact('state'));
+    } // End Method 
+
+
+    public function AddState(){
+        $division = ShipDivision::orderBy('division_name','ASC')->get();
+        $district = ShipDistricts::orderBy('district_name','ASC')->get();
+         return view('backend.ship.state.state_add',compact('division','district'));
+    }// End Method 
+
+
+    public function GetDistrict($division_id){
+        $dist = ShipDistricts::where('division_id',$division_id)->orderBy('district_name','ASC')->get();
+            return json_encode($dist);
+
+    }// End Method 
+
+
+
+
+     /////////////// Country CRUD ///////////////
+
+
+     public function AllCountry(){
+        $country = ShipCountry::latest()->get();
+        return view('backend.ship.country.country_all',compact('country'));
+    } // End Method 
+
+
+    public function AddCountry(){
+        $division = ShipDivision::orderBy('division_name','ASC')->get();
+        $district = ShipDistricts::orderBy('district_name','ASC')->get();
+        $state = ShipState::orderBy('state_name','ASC')->get();
+         return view('backend.ship.country._add',compact('division','district','state'));
+    }// End Method 
+
+
+    public function GetState($division_id){
+        $sta = ShipState::where('division_id',$division_id)->orderBy('State_name','ASC')->get();
+            return json_encode($sta);
 
     }// End Method 
 

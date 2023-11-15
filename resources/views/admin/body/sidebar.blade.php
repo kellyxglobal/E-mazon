@@ -134,8 +134,8 @@
 						<li> <a href="{{ route('all.division') }}"><i class="bx bx-right-arrow-alt"></i>All Division</a>
 						<li> <a href="{{ route('all.district') }}"><i class="bx bx-right-arrow-alt"></i>All District</a>
 						</li>
-						<li> <a href="{{ route('all.division') }}"><i class="bx bx-right-arrow-alt"></i>All State</a>
-						<li> <a href="{{ route('all.division') }}"><i class="bx bx-right-arrow-alt"></i>All Country</a>
+						<li> <a href="{{ route('all.state') }}"><i class="bx bx-right-arrow-alt"></i>All State</a>
+						<li> <a href="{{ route('all.country') }}"><i class="bx bx-right-arrow-alt"></i>All Country</a>
 						</li>
 					</ul>
 				</li>

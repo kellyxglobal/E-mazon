@@ -255,6 +255,34 @@ Route::controller(ShippingAreaController::class)->group(function(){
 }); 
 
 
+// Shipping State All Route 
+Route::controller(ShippingAreaController::class)->group(function(){
+    Route::get('/all/state' , 'AllState')->name('all.state');
+    Route::get('/add/state' , 'AddState')->name('add.state');
+    Route::post('/store/state' , 'StoreState')->name('store.state');
+    Route::get('/edit/district/{id}' , 'EditDistrict')->name('edit.district');
+    Route::post('/update/district' , 'UpdateDistrict')->name('update.district');
+    Route::get('/delete/district/{id}' , 'DeleteDistrict')->name('delete.district');
+
+    Route::get('/district/ajax/{division_id}' , 'GetDistrict');
+
+}); 
+
+
+// Shipping Country All Route 
+Route::controller(ShippingAreaController::class)->group(function(){
+    Route::get('/all/country' , 'AllCountry')->name('all.country');
+    Route::get('/add/country' , 'AddCountry')->name('add.country');
+    Route::post('/store/country' , 'StoreCountry')->name('store.country');
+    Route::get('/edit/district/{id}' , 'EditDistrict')->name('edit.district');
+    Route::post('/update/district' , 'UpdateDistrict')->name('update.district');
+    Route::get('/delete/district/{id}' , 'DeleteDistrict')->name('delete.district');
+
+    Route::get('/state/ajax/{division_id}' , 'GetState');
+
+}); 
+
+
 
 }); // Admin End Middleware
 
