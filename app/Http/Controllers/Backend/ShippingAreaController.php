@@ -178,6 +178,69 @@ public function StoreDistrict(Request $request){
 
     }// End Method 
 
+    public function StoreState(Request $request){ 
+
+        ShipState::insert([ 
+            'division_id' => $request->division_id, 
+            'district_id' => $request->district_id, 
+            'state_name' => $request->state_name,
+        ]);
+
+       $notification = array(
+            'message' => 'ShipState Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.state')->with($notification); 
+
+    }// End Method 
+
+
+    public function EditState($id){
+        $division = ShipDivision::orderBy('division_name','ASC')->get();
+        $district = ShipDistricts::orderBy('district_name','ASC')->get();
+        $state = ShipState::findOrFail($id);
+         return view('backend.ship.state.state_edit',compact('division','district','state'));
+    }// End Method 
+
+
+     public function UpdateState(Request $request){
+
+        $state_id = $request->id;
+
+         ShipState::findOrFail($state_id)->update([
+            'division_id' => $request->division_id, 
+            'district_id' => $request->district_id, 
+            'state_name' => $request->state_name,
+        ]);
+
+       $notification = array(
+            'message' => 'ShipState Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.state')->with($notification); 
+
+
+    }// End Method 
+
+ public function DeleteState($id){
+
+        ShipState::findOrFail($id)->delete();
+
+         $notification = array(
+            'message' => 'ShipState Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+
+
+    }// End Method 
+
+
+
+
 
 
 
@@ -194,7 +257,7 @@ public function StoreDistrict(Request $request){
         $division = ShipDivision::orderBy('division_name','ASC')->get();
         $district = ShipDistricts::orderBy('district_name','ASC')->get();
         $state = ShipState::orderBy('state_name','ASC')->get();
-         return view('backend.ship.country._add',compact('division','district','state'));
+         return view('backend.ship.country.country_add',compact('division','district','state'));
     }// End Method 
 
 
@@ -203,6 +266,71 @@ public function StoreDistrict(Request $request){
             return json_encode($sta);
 
     }// End Method 
+
+    public function StoreCountry(Request $request){ 
+
+        ShipCountry::insert([ 
+            'division_id' => $request->division_id, 
+            'district_id' => $request->district_id, 
+            'state_id' => $request->state_id,
+            'country_name' => $request->country_name,
+        ]);
+
+       $notification = array(
+            'message' => 'ShipCountry Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.country')->with($notification); 
+
+    }// End Method 
+
+
+
+    public function EditCountry($id){
+        $division = ShipDivision::orderBy('division_name','ASC')->get();
+        $district = ShipDistricts::orderBy('district_name','ASC')->get();
+        $state = ShipState::orderBy('state_name','ASC')->get();
+        $country = ShipCountry::findOrFail($id);
+         return view('backend.ship.country.country_edit',compact('division','district','state','country'));
+    }// End Method 
+
+
+     public function UpdateCountry(Request $request){
+
+        $country_id = $request->id;
+
+         ShipCountry::findOrFail($country_id)->update([
+            'division_id' => $request->division_id, 
+            'district_id' => $request->district_id, 
+            'state_id' => $request->state_id,
+            'country_name' => $request->country_name,
+        ]);
+
+       $notification = array(
+            'message' => 'ShipCountry Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.country')->with($notification); 
+
+
+    }// End Method 
+
+ public function DeleteCountry($id){
+
+        ShipCountry::findOrFail($id)->delete();
+
+         $notification = array(
+            'message' => 'ShipCountry Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+
+
+    }// End Method 
+
 
 
 }

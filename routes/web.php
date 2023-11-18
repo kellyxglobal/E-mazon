@@ -260,9 +260,9 @@ Route::controller(ShippingAreaController::class)->group(function(){
     Route::get('/all/state' , 'AllState')->name('all.state');
     Route::get('/add/state' , 'AddState')->name('add.state');
     Route::post('/store/state' , 'StoreState')->name('store.state');
-    Route::get('/edit/district/{id}' , 'EditDistrict')->name('edit.district');
-    Route::post('/update/district' , 'UpdateDistrict')->name('update.district');
-    Route::get('/delete/district/{id}' , 'DeleteDistrict')->name('delete.district');
+    Route::get('/edit/state/{id}' , 'EditState')->name('edit.state');
+    Route::post('/update/state' , 'UpdateState')->name('update.state');
+    Route::get('/delete/state/{id}' , 'DeleteState')->name('delete.state');
 
     Route::get('/district/ajax/{division_id}' , 'GetDistrict');
 
@@ -274,9 +274,9 @@ Route::controller(ShippingAreaController::class)->group(function(){
     Route::get('/all/country' , 'AllCountry')->name('all.country');
     Route::get('/add/country' , 'AddCountry')->name('add.country');
     Route::post('/store/country' , 'StoreCountry')->name('store.country');
-    Route::get('/edit/district/{id}' , 'EditDistrict')->name('edit.district');
-    Route::post('/update/district' , 'UpdateDistrict')->name('update.district');
-    Route::get('/delete/district/{id}' , 'DeleteDistrict')->name('delete.district');
+    Route::get('/edit/country/{id}' , 'EditCountry')->name('edit.country');
+    Route::post('/update/country' , 'UpdateCountry')->name('update.country');
+    Route::get('/delete/country/{id}' , 'DeleteCountry')->name('delete.country');
 
     Route::get('/state/ajax/{division_id}' , 'GetState');
 
