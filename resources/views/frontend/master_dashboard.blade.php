@@ -692,6 +692,7 @@ function wishlistRemove(id){
                 success:function(data){
                     cart();
                     miniCart();
+                    couponCalculation();
                      // Start Message 
             const Toast = Swal.mixin({
                   toast: true,
@@ -730,6 +731,7 @@ function cartIncrement(rowId){
         success:function(data){
             cart();
             miniCart();
+            couponCalculation();
         }
     });
  }
@@ -744,6 +746,7 @@ function cartDecrement(rowId){
         success:function(data){
             cart();
             miniCart();
+            couponCalculation();
         }
     });
  }
