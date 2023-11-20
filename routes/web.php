@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\StripeController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 /*
 |--------------------------------------------------------------------------
@@ -355,8 +356,15 @@ Route::controller(CheckoutController::class)->group(function(){
 
     Route::post('/checkout/store' , 'CheckoutStore')->name('checkout.store');
     
+}); //End Method
+
+ // Stripe All Route 
+ Route::controller(StripeController::class)->group(function(){
+    Route::post('/stripe/order' , 'StripeOrder')->name('stripe.order');
+
 
 
 }); 
+
    
 }); // end User group middleware
