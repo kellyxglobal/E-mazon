@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
@@ -284,6 +285,13 @@ Route::controller(ShippingAreaController::class)->group(function(){
 
 }); 
 
+// Admin Order All Route 
+Route::controller(OrderController::class)->group(function(){
+    Route::get('/pending/order' , 'PendingOrder')->name('pending.order');
+
+
+}); 
+
 
 
 }); // Admin End Middleware
@@ -366,6 +374,9 @@ Route::controller(CheckoutController::class)->group(function(){
 
 
 }); 
+
+
+
 
    
 }); // end User group middleware
