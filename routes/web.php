@@ -23,6 +23,7 @@ use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\StripeController;
+use App\Http\Controllers\User\AllUserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 /*
 |--------------------------------------------------------------------------
@@ -339,6 +340,14 @@ Route::middleware(['auth','role:user'])->group(function() {
        Route::get('/wishlist' , 'AllWishlist')->name('wishlist');
        Route::get('/get-wishlist-product' , 'GetWishlistProduct');
        Route::get('/wishlist-remove/{id}' , 'WishlistRemove'); 
+
+    // User Dashboard All Route 
+    Route::controller(AllUserController::class)->group(function(){
+        Route::get('/user/account/page' , 'UserAccount')->name('user.account.page');
+
+
+
+}); 
 
     }); 
 
