@@ -327,6 +327,7 @@
         function addToCartDetails(){
      var product_name = $('#dpname').text();  
      var id = $('#dproduct_id').val();
+     var vendor = $('#vproduct_id').val();
      var color = $('#dcolor option:selected').text();
      var size = $('#dsize option:selected').text();
      var quantity = $('#dqty').val(); 
@@ -334,7 +335,7 @@
         type: "POST",
         dataType : 'json',
         data:{
-            color:color, size:size, quantity:quantity,product_name:product_name
+            color:color, size:size, quantity:quantity,product_name:product_name,vendor:vendor
         },
         url: "/dcart/data/store/"+id,
         success:function(data){

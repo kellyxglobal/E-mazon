@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('division_id');
             $table->unsignedBigInteger('district_id');
             $table->unsignedBigInteger('state_id');
+            $table->unsignedBigInteger('country_id');
             $table->string('name');
             $table->string('email');
             $table->string('phone');
