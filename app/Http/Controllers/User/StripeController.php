@@ -10,6 +10,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use Auth;
+Use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderMail;
 
 class StripeController extends Controller
 {
@@ -66,6 +68,23 @@ class StripeController extends Controller
 
         ]);
 
+        // Start Send Email
+
+        $invoice = Order::findOrFail($order_id);
+
+        $data = [
+
+            'invoice_no' => $invoice->invoice_no,
+            'amount' => $total_amount,
+            'name' => $invoice->name,
+            'email' => $invoice->email,
+
+        ];
+
+        Mail::to($request->email)->send(new OrderMail($data));
+
+        // End Send Email 
+
 
         $carts = Cart::content();
         foreach($carts as $cart){
@@ -118,6 +137,7 @@ class StripeController extends Controller
             'division_id' => $request->division_id,
             'district_id' => $request->district_id,
             'state_id' => $request->state_id,
+            'country_id' => $request->country_id,
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
@@ -140,6 +160,36 @@ class StripeController extends Controller
             'created_at' => Carbon::now(),  
 
         ]);
+
+        $carts = Cart::content();
+        foreach($carts as $cart){
+
+            OrderItem::insert([
+                'order_id' => $order_id,
+                'product_id' => $cart->id,
+                'vendor_id' => $cart->options->vendor,
+                'color' => $cart->options->color,
+                'size' => $cart->options->size,
+                'qty' => $cart->qty,
+                'price' => $cart->price,
+                'created_at' =>Carbon::now(),
+
+            ]);
+
+        } // End Foreach
+
+        if (Session::has('coupon')) {
+           Session::forget('coupon');
+        }
+
+        Cart::destroy();
+
+        $notification = array(
+            'message' => 'Your Order Place Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('dashboard')->with($notification); 
 
         }// End Method 
 
