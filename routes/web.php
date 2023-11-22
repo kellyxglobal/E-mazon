@@ -297,6 +297,11 @@ Route::controller(ShippingAreaController::class)->group(function(){
 // Admin Order All Route 
 Route::controller(OrderController::class)->group(function(){
     Route::get('/pending/order' , 'PendingOrder')->name('pending.order');
+    Route::get('/admin/order/details/{order_id}' , 'AdminOrderDetails')->name('admin.order.details');
+    Route::get('/admin/confirmed/order' , 'AdminConfirmedOrder')->name('admin.confirmed.order');
+    Route::get('/admin/processing/order' , 'AdminProcessingOrder')->name('admin.processing.order');
+
+ Route::get('/admin/delivered/order' , 'AdminDeliveredOrder')->name('admin.delivered.order');
 
 
 }); 
@@ -348,6 +353,7 @@ Route::middleware(['auth','role:user'])->group(function() {
         Route::get('/user/order/page' , 'UserOrderPage')->name('user.order.page');
         Route::get('/user/order_details/{order_id}' , 'UserOrderDetails');
         Route::get('/user/invoice_download/{order_id}' , 'UserOrderInvoice');
+        
 
 
 
