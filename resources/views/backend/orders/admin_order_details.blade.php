@@ -129,13 +129,24 @@
 
 									<tr>
 										<th>Order Status:</th>
-										<th><span class="badge rounded-pill bg-info">{{ $order->status }}</span></th>
+										<th><span class="badge bg-danger" style="font-size: 15px;">{{ $order->status }}</span></th>
 									</tr>
 
 
 									<tr>
 										<th> </th>
-										<th><a href="" class="btn btn-block btn-success" >Confirm Order</a> </th>
+										<th>
+											@if($order->status == 'pending')
+											<a href="{{ route('pending-confirm',$order->id) }}" class="btn btn-block btn-success" id="confirm" >Confirm Order</a>
+											@elseif($order->status == 'confirm')
+											<a href="{{ route('confirm-processing',$order->id) }}" class="btn btn-block btn-success" id="processing" >Processing Order</a>
+											@elseif($order->status == 'processing')
+											<a href="{{ route('processing-delivered',$order->id) }}" class="btn btn-block btn-success" id="delivered" >Delivered Order</a>
+											@endif
+
+
+
+      	 								</th>
 									</tr>
 
 								</table>
