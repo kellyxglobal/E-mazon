@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\BannerController;
@@ -120,6 +121,9 @@ Route::middleware(['auth','role:vendor'])->group(function() {
         // Vendor Order Route 
     Route::controller(VendorOrderController::class)->group(function(){
         Route::get('/vendor/order' , 'VendorOrder')->name('vendor.order');
+        Route::get('/vendor/return/order' , 'VendorReturnOrder')->name('vendor.return.order');
+        Route::get('/vendor/complete/return/order' , 'VendorCompleteReturnOrder')->name('vendor.complete.return.order');
+        Route::get('/vendor/order/details/{order_id}' , 'VendorOrderDetails')->name('vendor.order.details');
 
 
         });
@@ -311,6 +315,15 @@ Route::controller(OrderController::class)->group(function(){
 
 }); 
 
+// Return Order All Route 
+Route::controller(ReturnController::class)->group(function(){
+    Route::get('/return/request' , 'ReturnRequest')->name('return.request');
+    Route::get('/return/request/approved/{order_id}' , 'ReturnRequestApproved')->name('return.request.approved');
+    Route::get('/complete/return/request' , 'CompleteReturnRequest')->name('complete.return.request');
+
+});
+
+
 
 
 }); // Admin End Middleware
@@ -358,13 +371,12 @@ Route::middleware(['auth','role:user'])->group(function() {
         Route::get('/user/order/page' , 'UserOrderPage')->name('user.order.page');
         Route::get('/user/order_details/{order_id}' , 'UserOrderDetails');
         Route::get('/user/invoice_download/{order_id}' , 'UserOrderInvoice');
-        
-
-
+        Route::post('/return/order/{order_id}' , 'ReturnOrder')->name('return.order');
+        Route::get('/return/order/page' , 'ReturnOrderPage')->name('return.order.page');
 
 }); 
 
-    }); 
+}); 
 
 
  // Compare All Route 
