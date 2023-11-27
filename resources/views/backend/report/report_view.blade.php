@@ -46,7 +46,8 @@
 
 
 
-<form>
+    <form method="post" action="{{ route('search-by-month')}}">
+		@csrf
 		<div class="col">
 			<div class="card">
 
