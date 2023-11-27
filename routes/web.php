@@ -331,6 +331,8 @@ Route::controller(ReportController::class)->group(function(){
     Route::post('/search/by/date' , 'SearchByDate')->name('search-by-date');
     Route::post('/search/by/month' , 'SearchByMonth')->name('search-by-month');
     Route::post('/search/by/year' , 'SearchByYear')->name('search-by-year');
+    Route::get('/order/by/user' , 'OrderByUser')->name('order.by.user');
+    Route::post('/search/by/user' , 'SearchByUser')->name('search-by-user');
 
 });
 

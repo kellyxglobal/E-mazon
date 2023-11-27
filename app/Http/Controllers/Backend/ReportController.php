@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DateTime;
 use App\Models\Order;
+use App\Models\User;
 
 class ReportController extends Controller
 {
@@ -41,5 +42,18 @@ class ReportController extends Controller
         $orders = Order::where('order_year',$year)->latest()->get();
         return view('backend.report.report_by_year',compact('orders','year'));
 
+    }// End Method 
+
+
+    public function OrderByUser(){
+        $users = User::where('role','user')->latest()->get();
+        return view('backend.report.report_by_user',compact('users'));
+
+    }// End Method 
+
+    public function SearchByUser(Request $request){
+        $users = $request->user;
+        $orders = Order::where('user_id',$users)->latest()->get();
+        return view('backend.report.report_by_user_show',compact('orders','users'));
     }// End Method 
 }
