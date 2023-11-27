@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\VendorOrderController;
+use App\Http\Controllers\Backend\ReportController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\VendorProductController;
@@ -320,6 +321,14 @@ Route::controller(ReturnController::class)->group(function(){
     Route::get('/return/request' , 'ReturnRequest')->name('return.request');
     Route::get('/return/request/approved/{order_id}' , 'ReturnRequestApproved')->name('return.request.approved');
     Route::get('/complete/return/request' , 'CompleteReturnRequest')->name('complete.return.request');
+
+});
+
+// Report All Route 
+Route::controller(ReportController::class)->group(function(){
+
+    Route::get('/report/view' , 'ReportView')->name('report.view');
+    Route::post('/search/by/date' , 'SearchByDate')->name('search-by-date');
 
 });
 
