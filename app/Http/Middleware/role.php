@@ -25,10 +25,9 @@ class role
             Cache::put('user-is-online' . Auth::user()->id, true,$expireTime);
             User::where('id',Auth::user()->id)->update(['last_seen' => carbon::now()]);
         }
-
         if ($request->user()->role !== $role) {
             return redirect('dashboard');
         }
         return $next($request);
     }
-}
+} 
