@@ -42,4 +42,43 @@ class BlogController extends Controller
 
 
 
+    public function EditBlogCategory($id){
+
+        $blogcategories = BlogCategory::findOrFail($id);
+        return view('backend.blog.category.blogcategory_edit',compact('blogcategories'));
+
+    }// End Method 
+
+     public function UpdateBlogCategory(Request $request){
+
+      $blog_id = $request->id;
+
+        BlogCategory::findOrFail($blog_id)->update([
+            'blog_category_name' => $request->blog_category_name,
+            'blog_category_slug' => strtolower(str_replace(' ', '-',$request->blog_category_name)), 
+        ]);
+
+       $notification = array(
+            'message' => 'Blog Category Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('admin.blog.category')->with($notification); 
+
+    }// End Method 
+
+
+    public function DeleteBlogCategory($id){
+        BlogCategory::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Blog Category Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+    }// End Method 
+
+
+
 }
