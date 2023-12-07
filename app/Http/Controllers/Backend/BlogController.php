@@ -205,5 +205,30 @@ class BlogController extends Controller
    }// End Method 
 
 
+    //////////////////// Frontend Blog All Method //////////////
+    public function AllBlog(){
+        $blogcategories = BlogCategory::latest()->get();
+        $blogpost = BlogPost::latest()->get();
+        return view('frontend.blog.home_blog',compact('blogcategories','blogpost'));
+    }// End Method 
+
+    public function BlogDetails($id,$slug){
+        $blogcategories = BlogCategory::latest()->get();
+        $blogdetails = BlogPost::findOrFail($id);
+        $breadcat = BlogCategory::where('id',$id)->get();
+        return view('frontend.blog.blog_details',compact('blogcategories','blogdetails','breadcat'));
+
+    }// End Method 
+
+    public function BlogPostCategory($id,$slug){
+
+        $blogcategoryies = BlogCategory::latest()->get();
+        $blogpost = BlogPost::where('category_id',$id)->get();
+        $breadcat = BlogCategory::where('id',$id)->get();
+        return view('frontend.blog.category_post',compact('blogcategoryies','blogpost','breadcat'));
+
+    }// End Method 
+
+
 
 }
