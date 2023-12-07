@@ -345,7 +345,7 @@ Route::controller(ActiveUserController::class)->group(function(){
     Route::get('/all/vendor' , 'AllVendor')->name('all-vendor');
 });
 
-// Active user and vendor All Route 
+// Blog Category All Route 
 Route::controller(BlogController::class)->group(function(){
 
     Route::get('/admin/blog/category' , 'AllBlogCategory')->name('admin.blog.category'); 
@@ -361,6 +361,25 @@ Route::controller(BlogController::class)->group(function(){
     Route::get('/admin/delete/blog/category/{id}' , 'DeleteBlogCategory')->name('delete.blog.category');
 
 });
+
+
+// Blog Post All Route 
+Route::controller(BlogController::class)->group(function(){
+
+    Route::get('/admin/blog/post' , 'AllBlogPost')->name('admin.blog.post'); 
+   
+     Route::get('/admin/add/blog/post' , 'AddBlogPost')->name('add.blog.post');
+   
+     Route::post('/admin/store/blog/post' , 'StoreBlogPost')->name('store.blog.post');
+
+    Route::get('/admin/edit/blog/post/{id}' , 'EditBlogPost')->name('edit.blog.post');
+   
+    Route::post('/admin/update/blog/post' , 'UpdateBlogPost')->name('update.blog.post');
+   
+    Route::get('/admin/delete/blog/post/{id}' , 'DeleteBlogPost')->name('delete.blog.post');
+   
+   
+   });
 
 
 
