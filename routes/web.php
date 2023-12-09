@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
@@ -399,6 +400,14 @@ Route::controller(ReviewController::class)->group(function(){
    
    });
    
+
+// Site Setting All Route 
+Route::controller(SiteSettingController::class)->group(function(){
+
+    Route::get('/site/setting' , 'SiteSetting')->name('site.setting');
+    Route::post('/site/setting/update' , 'SiteSettingUpdate')->name('site.setting.update');
+   
+   });
 
 
 
