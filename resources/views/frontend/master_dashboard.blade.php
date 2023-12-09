@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Kellyxglobal - Multipurpose eCommerce Solutions</title>
+    <title> @yield('title')</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">

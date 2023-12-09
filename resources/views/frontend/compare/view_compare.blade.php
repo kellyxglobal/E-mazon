@@ -1,6 +1,8 @@
 @extends('frontend.master_dashboard')
 @section('main')
-
+@section('title')
+   Compare Page 
+@endsection
 
  <div class="page-header breadcrumb-wrap">
             <div class="container">

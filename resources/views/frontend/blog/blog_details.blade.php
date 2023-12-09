@@ -1,6 +1,8 @@
 @extends('frontend.master_dashboard')
 @section('main')
-
+@section('title')
+   {{ $blogdetails->post_title }}
+@endsection
 
  <div class="page-header breadcrumb-wrap">
             <div class="container">

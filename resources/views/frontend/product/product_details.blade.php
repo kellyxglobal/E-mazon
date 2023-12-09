@@ -1,5 +1,8 @@
 @extends('frontend.master_dashboard')
 @section('main')
+@section('title')
+    {{ $product->product_name }} 
+@endsection
 
 <div class="page-header breadcrumb-wrap">
             <div class="container">

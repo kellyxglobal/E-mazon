@@ -1,6 +1,9 @@
 
 @extends('frontend.master_dashboard')
 @section('main')
+@section('title')
+    KellyxGlobal Multi Vendor Shop 
+@endsection
 
         <!--End hero slider-->
         @include('frontend.home.home_slider')
