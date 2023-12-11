@@ -64,7 +64,8 @@ $setting = App\Models\SiteSetting::find(1);
                     </div>
                     <div class="header-right">
                         <div class="search-style-2">
-                            <form action="#">
+                        <form action="{{ route('product.search') }}" method="post">
+                @csrf
                                 <select class="select-active">
                                     <option>All Categories</option>
                                     <option>Milks and Dairies</option>
@@ -78,7 +79,7 @@ $setting = App\Models\SiteSetting::find(1);
                                     <option>Noodles & Rice</option>
                                     <option>Ice cream</option>
                                 </select>
-                                <input type="text" placeholder="Search for items..." />
+                                <input name="search" placeholder="Search for items..." />
                             </form>
                         </div>
                         <div class="header-action-right">
@@ -363,6 +364,29 @@ $setting = App\Models\SiteSetting::find(1);
 
    <!-- End Header  -->
 
+   <style>
+    #searchProducts{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        z-index: 999;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+</style>
+
+<script>
+    function search_result_show(){
+        $("#searchProducts").slideDown();
+    }
+    function search_result_hide(){
+        $("#searchProducts").slideUp();
+    }
+</script>
+
+
     <div class="mobile-header-active mobile-header-wrapper-style">
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
@@ -379,7 +403,8 @@ $setting = App\Models\SiteSetting::find(1);
             <div class="mobile-header-content-area">
                 <div class="mobile-search search-style-3 mobile-header-border">
                     <form action="#">
-                        <input type="text" placeholder="Search for items…" />
+                    <input onfocus="search_result_show()" onblur="search_result_hide()" name="search" id="search" placeholder="Search for items..." />
+                        <div id="searchProducts"></div>
                         <button type="submit"><i class="fi-rs-search"></i></button>
                     </form>
                 </div>

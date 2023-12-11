@@ -478,6 +478,8 @@ Route::middleware(['auth','role:user'])->group(function() {
        Route::get('/get-wishlist-product' , 'GetWishlistProduct');
        Route::get('/wishlist-remove/{id}' , 'WishlistRemove'); 
 
+   });
+
     // User Dashboard All Route 
     Route::controller(AllUserController::class)->group(function(){
         Route::get('/user/account/page' , 'UserAccount')->name('user.account.page');
@@ -490,11 +492,16 @@ Route::middleware(['auth','role:user'])->group(function() {
 
         // Order Tracking 
         Route::get('/user/track/order' , 'UserTrackOrder')->name('user.track.order');
+        Route::post('/order/tracking' , 'OrderTracking')->name('order.tracking');
 
-}); 
+    }); 
 
-}); 
-
+    // Search All Route 
+    Route::controller(IndexController::class)->group(function(){
+        Route::post('/search' , 'ProductSearch')->name('product.search');
+        Route::post('/search-product' , 'SearchProduct');  
+   
+   });
 
  // Compare All Route 
 Route::controller(CompareController::class)->group(function(){
@@ -535,9 +542,6 @@ Route::controller(CheckoutController::class)->group(function(){
 
 
 }); 
-
-
-
 
    
 }); // end User group middleware
