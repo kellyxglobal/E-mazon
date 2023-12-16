@@ -163,6 +163,22 @@ Route::controller(AdminController::class)->group(function(){
 });
 
 
+// Admin User All Route 
+Route::controller(AdminController::class)->group(function(){
+
+    Route::get('/all/admin' , 'AllAdmin')->name('all.admin');
+    Route::get('/add/admin' , 'AddAdmin')->name('add.admin');
+    Route::post('/admin/user/store' , 'AdminUserStore')->name('admin.user.store');
+
+    Route::get('/edit/admin/role/{id}' , 'EditAdminRole')->name('edit.admin.role');
+
+    Route::post('/admin/user/update/{id}' , 'AdminUserUpdate')->name('admin.user.update');
+
+    Route::get('/delete/admin/role/{id}' , 'DeleteAdminRole')->name('delete.admin.role');
+   
+   });
+
+
 Route::middleware(['auth','role:admin'])->group(function() { //Potected. Accessible only by admin users
 
 //All Brand's Route
@@ -447,8 +463,6 @@ Route::controller(RoleController::class)->group(function(){
    
     Route::get('/delete/roles/{id}' , 'DeleteRoles')->name('delete.roles');
 
-    Route::get('/delete/roles/{id}' , 'DeleteRoles')->name('delete.roles');
-
     // add role permission 
 
     Route::get('/add/roles/permission' , 'AddRolesPermission')->name('add.roles.permission');
@@ -460,8 +474,15 @@ Route::controller(RoleController::class)->group(function(){
     Route::get('/admin/edit/roles/{id}' , 'AdminRolesEdit')->name('admin.edit.roles');
 
     Route::post('/admin/roles/update/{id}' , 'AdminRolesUpdate')->name('admin.roles.update');
+
+    Route::get('/admin/delete/roles/{id}' , 'AdminRolesDelete')->name('admin.delete.roles');
+
+    
    
    });
+
+
+   
    
 
 
