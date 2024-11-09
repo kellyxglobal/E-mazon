@@ -85,4 +85,4 @@ The Laravel Project is open-sourced software licensed.
 - Run "php artisan serve" to start the server via port 8000 - http://127.0.0.1:8000
 - Launch your browser window and type http://127.0.0.1:8000 to visit the endpoint on localhost
 
-# Thank you - 09037541494
+# Thank you
